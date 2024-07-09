@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 656111754}
   - component: {fileID: 656111753}
   m_Layer: 0
-  m_Name: idle_1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jumpPower: 20
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -358,7 +359,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2.5
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -725,8 +726,8 @@ Transform:
   m_GameObject: {fileID: 1727217811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3602, y: 0.1291, z: 0}
-  m_LocalScale: {x: 0.980096, y: 8.3383, z: 1}
+  m_LocalPosition: {x: -7.3602, y: 3.7332, z: 0}
+  m_LocalScale: {x: 0.980096, y: 15.546761, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
