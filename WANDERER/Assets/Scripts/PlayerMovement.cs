@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
 
         //set animator parameters
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
+        anim.SetBool(AnimationStrings.run, horizontalInput != 0);
+        anim.SetBool(AnimationStrings.grounded, isGrounded());
 
         //wall jump logic
         if (wallJumpCooldown > 0.2f)
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded())
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
-            anim.SetTrigger("jump");
+            anim.SetTrigger(AnimationStrings.jump);
         }
        else if (onWall() && !isGrounded())
         {
