@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         //set animator parameters
         anim.SetBool(AnimationStrings.run, horizontalInput != 0);
         anim.SetBool(AnimationStrings.grounded, isGrounded());
+        anim.SetFloat(AnimationStrings.yVelocity, body.velocity.y);
 
         //wall jump logic
         if (wallJumpCooldown > 0.2f)
@@ -53,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 body.velocity = Vector2.zero;
             }
             else
-                body.gravityScale = 7;
+                body.gravityScale = 5;
 
             if (Input.GetKey(KeyCode.Space))
                 Jump();
