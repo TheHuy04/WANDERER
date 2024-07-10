@@ -9,6 +9,5 @@ internal class AnimationStrings
     internal static string run = "run";
     internal static string grounded = "grounded";
     internal static string jump = "jump";
-    internal static string yVelocity = "yVelocity";
 }
 
