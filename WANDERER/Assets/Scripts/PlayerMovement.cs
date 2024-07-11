@@ -24,27 +24,34 @@ public class PlayerMovement : MonoBehaviour
     {
         get
         {
-            if (IsMoving && !touchingDirections.IsOnWall)
+            if(CanMove)
             {
-                if (touchingDirections.IsGrounded)
+                if (IsMoving && !touchingDirections.IsOnWall)
                 {
-                    if (IsRunning)
+                    if (touchingDirections.IsGrounded)
                     {
-                        return runSpeed;
+                        if (IsRunning)
+                        {
+                            return runSpeed;
+                        }
+                        else
+                        {
+                            return walkSpeed;
+                        }
                     }
                     else
                     {
-                        return walkSpeed;
+                        return airSpeed;
                     }
                 }
-                else
                 {
-                    return airSpeed;
+                    return 0;
                 }
-            }
+            }else
             {
                 return 0;
             }
+            
         }
     }
 
@@ -79,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public bool canMove { get
+    public bool CanMove { get
         {
             return animator.GetBool(AnimationStrings.canMove);
         } }
@@ -162,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void onJump(InputAction.CallbackContext context)
     {
-        if(context.started && touchingDirections.IsGrounded)
+        if(context.started && touchingDirections.IsGrounded && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
