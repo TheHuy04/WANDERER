@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ground
-  - Ground
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Wall
+  - Ground1
+  - Wall1
   - 
   - 
   - 
@@ -43,24 +41,15 @@ TagManager:
   - name: Background
     uniqueID: 2895618605
     locked: 0
+  - name: Background2
+    uniqueID: 622128903
+    locked: 0
   - name: Ground
     uniqueID: 3489361483
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG sau
-    uniqueID: 2892027555
-    locked: 0
-  - name: Ground
-    uniqueID: 2013999497
-    locked: 0
-  - name: van
-    uniqueID: 793571957
-    locked: 0
-  - name: Player
-    uniqueID: 2564316853
-    locked: 0
-  - name: BG trc
-    uniqueID: 3983738837
+  - name: water
+    uniqueID: 2694085131
     locked: 0
