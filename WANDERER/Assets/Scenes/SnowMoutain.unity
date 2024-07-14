@@ -763,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 6273298642273299128, guid: 6c1f16ffbf0e032468507fd41e012718, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1665318880}
+      objectReference: {fileID: 1714215525}
     - target: {fileID: 6273298642273299129, guid: 6c1f16ffbf0e032468507fd41e012718, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273298642273299131, guid: 6c1f16ffbf0e032468507fd41e012718, type: 3}
       propertyPath: m_ColliderMask.m_Bits
-      value: 1
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 6273298642273299133, guid: 6c1f16ffbf0e032468507fd41e012718, type: 3}
       propertyPath: m_Name
@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 518850434}
   followeTarget: {fileID: 656111752}
---- !u!43 &1665318880
+--- !u!43 &1714215525
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
