@@ -2998,6 +2998,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -44, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -23, y: -4, z: 0}
     second:
       serializedVersion: 2
@@ -4066,7 +4076,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 45590348f4bc5df49b34f7949db3feb6, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 2714ade332c212f459d83a0a21d2edbf, type: 2}
-  - m_RefCount: 74
+  - m_RefCount: 75
     m_Data: {fileID: 11400000, guid: 54dfa7e1cfbd0474497adf3d275df8d3, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: e8266120e9b50f04ca22dbf1516d970e, type: 2}
@@ -4115,7 +4125,7 @@ Tilemap:
     m_Data: {fileID: -1105746711, guid: 2c77aa07c73f0b34995573dde5309a5a, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1616934649, guid: 9d59bc94d9704f14ea38460b386b87e9, type: 3}
-  - m_RefCount: 74
+  - m_RefCount: 75
     m_Data: {fileID: -1628675444, guid: 2c77aa07c73f0b34995573dde5309a5a, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: -736249493, guid: 2c77aa07c73f0b34995573dde5309a5a, type: 3}
@@ -4148,7 +4158,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 117407098, guid: 2c77aa07c73f0b34995573dde5309a5a, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 301
+  - m_RefCount: 302
     m_Data:
       e00: 1
       e01: 0
@@ -4167,7 +4177,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 301
+  - m_RefCount: 302
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -4318,6 +4328,14 @@ CompositeCollider2D:
         Y: 10000000
       - X: -230000000
         Y: -40000000
+      - X: -430000000
+        Y: -40000000
+      - X: -430000000
+        Y: -30000000
+      - X: -440000000
+        Y: -30000000
+      - X: -440000000
+        Y: -40000000
       - X: -500000000
         Y: -40000000
       - X: -500000000
@@ -4370,6 +4388,10 @@ CompositeCollider2D:
       - {x: -12.00003, y: 1}
       - {x: -23, y: 0.99997073}
       - {x: -23.000029, y: -4}
+      - {x: -43, y: -3.9999704}
+      - {x: -43.00003, y: -3}
+      - {x: -44, y: -3.0000293}
+      - {x: -44.00003, y: -4}
       - {x: -50, y: -4.000029}
       - {x: -49.999973, y: -6}
   m_VertexDistance: 0.0005
@@ -5284,10 +5306,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5014891525573866197, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6639547857088978365, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.98
@@ -5326,6 +5344,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639547857088978365, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899087337044739099, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5384,6 +5406,10 @@ PrefabInstance:
     - target: {fileID: 4695014912576855169, guid: 99db97eb080950046bd7dee79cef7355, type: 3}
       propertyPath: m_Name
       value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651398976471843744, guid: 99db97eb080950046bd7dee79cef7355, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

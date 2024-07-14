@@ -12,6 +12,7 @@ public class Golem : MonoBehaviour
     Rigidbody2D rb;
     TouchingDirections touchingDirections;
     Animator animator;
+    DamageAble damageAble;
 
     public enum WalkableDirection { Right, Left}
 
@@ -62,6 +63,7 @@ public class Golem : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
+        damageAble = GetComponent<DamageAble>();
     }
 
     void Update()
@@ -76,10 +78,14 @@ public class Golem : MonoBehaviour
         {
             FlipDirection();
         }
-        if(CanMove)
-            rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
-        else 
-            rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
+        if(!damageAble.lockVelocity)
+        {
+            if (CanMove)
+                rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
+            else
+                rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
+        }
+        
     }
 
     private void FlipDirection()
@@ -95,6 +101,11 @@ public class Golem : MonoBehaviour
         {
             Debug.LogError("Current walkable direction is not set to legal values of right or left");
         }
+    }
+
+    public void onHit(int damage, Vector2 knockBack)
+    {
+        rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
     }
 
     

@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
+    DamageAble damageAble;
+    
 
     public float currentMoveSpeed
     {
@@ -117,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
+
     private void Awake()
     {
         //grab references for rigidbody and animator from object
@@ -124,12 +128,15 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         touchingDirections = GetComponent<TouchingDirections>();
+        damageAble = GetComponent<DamageAble>();
+        
     }
 
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
+        if(!damageAble.lockVelocity)
+            rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
     }
@@ -190,5 +197,10 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
+    }
+
+    public void OnHit(int damage, Vector2 knockBack)
+    {
+        rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
     }
 }

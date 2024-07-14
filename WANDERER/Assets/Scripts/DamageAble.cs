@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageAble : MonoBehaviour
 {
+    public UnityEvent<int, Vector2> damageableHit;
+
     Animator animator;
 
     [SerializeField]
@@ -46,6 +49,9 @@ public class DamageAble : MonoBehaviour
 
     [SerializeField]
     private bool isInvicible = false;
+
+   
+
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
 
@@ -59,6 +65,18 @@ public class DamageAble : MonoBehaviour
             _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
             Debug.Log("IsAlive set " + value);
+        }
+    }
+
+    public bool lockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
 
@@ -81,16 +99,25 @@ public class DamageAble : MonoBehaviour
             timeSinceHit += Time.deltaTime;
         }
 
-        Hit(10);
+        
     }
 
-    public void Hit(int damage)
+    // Returns whenever the damageable took damage or not
+    public bool Hit(int damage, Vector2 knockBack)
     {
         if(IsAlive && !isInvicible)
         {
             Health -= damage;
             isInvicible = true;
+
+            // Notify other subcribed components that the damageable was hit to handle the knockback and such
+            animator.SetTrigger(AnimationStrings.hitTrigger);
+            lockVelocity = true;
+            damageableHit?.Invoke(damage, knockBack);
+
+            return true;
         }
+        return false;
     }
 
 
