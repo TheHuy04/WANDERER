@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Gate
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,10 +15,10 @@ TagManager:
   - 
   - Ground1
   - Wall1
-  - Player1
-  - Enemy1
-  - PlayerHitbox1
-  - EnemyHitbox1
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -51,9 +49,6 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: GB3
-    uniqueID: 1470279795
     locked: 0
   - name: water
     uniqueID: 2694085131

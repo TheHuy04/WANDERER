@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
-    DamageAble damageAble;
-    
 
     public float currentMoveSpeed
     {
@@ -111,16 +109,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public bool IsAlive
-    {
-        get
-        {
-            return animator.GetBool(AnimationStrings.isAlive);
-        }
-    }
-
-    
-
     private void Awake()
     {
         //grab references for rigidbody and animator from object
@@ -128,15 +116,12 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         touchingDirections = GetComponent<TouchingDirections>();
-        damageAble = GetComponent<DamageAble>();
-        
     }
 
 
     private void FixedUpdate()
     {
-        if(!damageAble.lockVelocity)
-            rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
     }
@@ -165,17 +150,9 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
 
-        if(IsAlive)
-        {
-            IsMoving = moveInput != Vector2.zero;
+        IsMoving = moveInput != Vector2.zero;
 
-            SetFacingDirection(moveInput);
-        }
-        else
-        {
-            IsMoving = false;
-        }
-        
+        SetFacingDirection(moveInput);
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -197,10 +174,5 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
-    }
-
-    public void OnHit(int damage, Vector2 knockBack)
-    {
-        rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
     }
 }
