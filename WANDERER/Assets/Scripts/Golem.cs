@@ -8,13 +8,14 @@ public class Golem : MonoBehaviour
     public float walkSpeed = 3f;
     public float walkStopRate = 0.05f;
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionZone;
 
     Rigidbody2D rb;
     TouchingDirections touchingDirections;
     Animator animator;
     DamageAble damageAble;
 
-    public enum WalkableDirection { Right, Left}
+    public enum WalkableDirection { Right, Left }
 
     private WalkableDirection _walkDirection;
     private Vector2 walkDirectionVector = Vector2.right;
@@ -22,8 +23,8 @@ public class Golem : MonoBehaviour
     public WalkableDirection WalkDirection
     {
         get { return _walkDirection; }
-        set { 
-                if(_walkDirection != value)
+        set {
+            if (_walkDirection != value)
             {
                 //direction flip
                 gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y);
@@ -31,12 +32,12 @@ public class Golem : MonoBehaviour
                 if (value == WalkableDirection.Right)
                 {
                     walkDirectionVector = Vector2.right;
-                }else if(value == WalkableDirection.Left)
+                } else if (value == WalkableDirection.Left)
                 {
                     walkDirectionVector = Vector2.left;
                 }
             }
-            
+
             _walkDirection = value; }
     }
 
@@ -58,6 +59,19 @@ public class Golem : MonoBehaviour
             return animator.GetBool(AnimationStrings.canMove);
         }
     }
+
+    public float AttackCooldown
+    {
+        get
+        {
+            return animator.GetFloat(AnimationStrings.attackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.attackCooldown, Mathf.Max(value, 0));
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -69,31 +83,35 @@ public class Golem : MonoBehaviour
     void Update()
     {
         HasTarget = attackZone.detectedCollinders.Count > 0;
+        if (AttackCooldown > 0)
+        {
+            AttackCooldown -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
     {
 
-        if(touchingDirections.IsGrounded && touchingDirections.IsOnWall)
+        if (touchingDirections.IsGrounded && touchingDirections.IsOnWall)
         {
             FlipDirection();
         }
-        if(!damageAble.lockVelocity)
+        if (!damageAble.lockVelocity)
         {
             if (CanMove)
                 rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
             else
                 rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
         }
-        
+
     }
 
     private void FlipDirection()
     {
-        if(WalkDirection == WalkableDirection.Right)
+        if (WalkDirection == WalkableDirection.Right)
         {
             WalkDirection = WalkableDirection.Left;
-        }else if(WalkDirection == WalkableDirection.Left)
+        } else if (WalkDirection == WalkableDirection.Left)
         {
             WalkDirection = WalkableDirection.Right;
         }
@@ -106,6 +124,14 @@ public class Golem : MonoBehaviour
     public void onHit(int damage, Vector2 knockBack)
     {
         rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
+    }
+
+    public void OnCliffDetected()
+    {
+        if(touchingDirections.IsGrounded)
+        {
+            FlipDirection();
+        }
     }
 
     
