@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CongDichChuyen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform diemDichChuyenDen;
+    public Transform GetDiemDichChuyen()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return diemDichChuyenDen;
     }
 }

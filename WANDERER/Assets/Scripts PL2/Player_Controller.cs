@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -15,6 +16,12 @@ public class Player_Controller : MonoBehaviour
     private bool isFacingRight = true;
     private bool nhay1L;
 
+    public float roll;
+    private bool isRolling;
+    public float rollTime;
+    public float rollCooldown;
+    private bool canRoll = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,14 +32,31 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         h_Move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(h_Move *speed, rb.velocity.y);
+        
+        if (!isRolling)
+        {
+            rb.velocity = new Vector2(h_Move * speed, rb.velocity.y);
+            Flip();
+        }
+        if(h_Move == 0)
+        {
+            anm.SetBool("Run", false);
+        }   
+        else
+        {
+            anm.SetBool("Run", true);
+        }
 
         if(Input.GetKeyDown(KeyCode.Space) && nhay1L)
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
             nhay1L = false;
+            anm.SetBool("Jump", true);
         }
-        Flip();
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canRoll && !isRolling)
+        {
+            Roll();
+        }
     }
     private void Flip()
     {
@@ -49,7 +73,28 @@ public class Player_Controller : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             nhay1L = true;
+            anm.SetBool("Jump", false);
         }
+    }
+    void Roll()
+    {
+        float rollDirection = isFacingRight ? 1f : -1f;
+        rb.velocity = new Vector2(roll * rollDirection, rb.velocity.y);
+        StartCoroutine(StopRoll());
+        StartCoroutine(RollCoolDown());
+        anm.SetTrigger("Roll");
+        isRolling = true;
+    }
+    IEnumerator StopRoll()
+    {
+        yield return new WaitForSeconds(rollTime);
+        isRolling = false;
+    }
+    IEnumerator RollCoolDown()
+    {
+        canRoll = false;
+        yield return new WaitForSeconds(rollCooldown);
+        canRoll = true;
     }
 
 }
