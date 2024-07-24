@@ -38596,13 +38596,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3836863306607617869, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: knockBack.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836863306607617869, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: knockBack.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836863306607617869, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: attackDamage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4295962924862274296, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3e3deb54377ec644aadda8ab39e230de, type: 2}
     - target: {fileID: 4959395301244509592, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: knockBack.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4959395301244509592, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: knockBack.y
