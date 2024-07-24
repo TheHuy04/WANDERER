@@ -8,11 +8,13 @@ public class MechaBot : MonoBehaviour
     public float flightSpeed = 3f;
     public float waypointReachedDistance = 0.1f;
     public DetectionZone mechaAttackZone;
+    public Collider2D deathCollider;
     public List<Transform> waypoints;
+    
 
 
     Animator animator;
-    Rigidbody rb;
+    Rigidbody2D rb;
     DamageAble DamageAble;
 
     Transform nextWaypoint;
@@ -42,7 +44,7 @@ public class MechaBot : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         DamageAble = GetComponent<DamageAble>();
         
     }
@@ -50,6 +52,11 @@ public class MechaBot : MonoBehaviour
     private void Start()
     {
         nextWaypoint = waypoints[waypointNum];
+    }
+
+    private void OnEnable()
+    {
+        
     }
 
     // Update is called once per frame
@@ -62,7 +69,7 @@ public class MechaBot : MonoBehaviour
     {
         if (DamageAble.IsAlive)
         {
-            if(CanMove)
+            if (CanMove)
             {
                 Flight();
             }
@@ -82,6 +89,7 @@ public class MechaBot : MonoBehaviour
         float distance = Vector2.Distance(nextWaypoint.position, transform.position);
 
         rb.velocity = directionToWaypoint * flightSpeed;
+        UpdateDirection();
 
         //see if we need to switch waypoint
         if(distance < waypointReachedDistance)
@@ -97,5 +105,37 @@ public class MechaBot : MonoBehaviour
 
             nextWaypoint = waypoints[waypointNum];
         }
+    }
+
+    private void UpdateDirection()
+    {
+        Vector3 locScale = transform.localScale;
+
+        if(transform.localScale.x < 0)
+        {
+            //facing the right
+            if(rb.velocity.x < 0)
+            {
+                //flip
+                transform.localScale = new Vector3(-1 * locScale.x, locScale.y, locScale.z);
+            }
+        }
+        else
+        {
+            //facing the left
+            if (rb.velocity.x > 0)
+            {
+                //flip
+                transform.localScale = new Vector3(-1 * locScale.x, locScale.y, locScale.z);
+            }
+        }
+    }
+
+    public void onDeath()
+    {
+        //dead flyier falls to the ground
+        rb.gravityScale = 2f;
+        rb.velocity = new Vector2(0, rb.velocity.y);
+        deathCollider.enabled = true;
     }
 }
