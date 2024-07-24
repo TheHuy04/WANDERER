@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaf792e8ac1f44468a560595dd446a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 30
+  attackDamage: 25
   knockBack: {x: 3, y: 1}
 --- !u!1 &7135006242689162249
 GameObject:
@@ -823,5 +823,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaf792e8ac1f44468a560595dd446a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 50
+  attackDamage: 30
   knockBack: {x: 3, y: 6}
