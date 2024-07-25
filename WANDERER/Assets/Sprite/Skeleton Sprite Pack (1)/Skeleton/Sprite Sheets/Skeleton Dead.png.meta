@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d25cb9c00885bb149969d6c411575956
+guid: 46202b03f6a245f4abdcf2f02b4c8ca7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,316 +97,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cave - Platforms 1_0
+      name: Skeleton Dead_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 999
-        width: 14
-        height: 6
+        x: 0
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7918418cfed9afb4baa8ac2ea8c5028f
-      internalID: 136261337
+      spriteID: 1ab663fb05c247c4cb1c904601aefe16
+      internalID: -681470415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_1
+      name: Skeleton Dead_1
       rect:
         serializedVersion: 2
-        x: 233
-        y: 812
-        width: 389
-        height: 189
+        x: 33
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eabdce6c55a96db4484db6bb95b2d29d
-      internalID: 2079006366
+      spriteID: a6c9be4bb38e0254ba786fd4fe984db7
+      internalID: -1197217991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_2
+      name: Skeleton Dead_2
       rect:
         serializedVersion: 2
-        x: 22
-        y: 810
-        width: 191
-        height: 189
+        x: 66
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39e2c8799c808464381623bad0f96242
-      internalID: 1979094252
+      spriteID: d6cd9fae08688954da74a5518afcb996
+      internalID: 7431504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_3
+      name: Skeleton Dead_3
       rect:
         serializedVersion: 2
-        x: 669
-        y: 645
-        width: 309
-        height: 323
+        x: 99
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b813292c541b284695fb3769fb09241
-      internalID: -1691730811
+      spriteID: 0724d8b5b2540a644b1ce5efdcc16ec2
+      internalID: -1188304990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_4
+      name: Skeleton Dead_4
       rect:
         serializedVersion: 2
-        x: 530
-        y: 799
-        width: 14
-        height: 6
+        x: 132
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f243039c6579540a6b81203f280911
-      internalID: 1912836746
+      spriteID: e12ffeb37bd2a394fbbf9a4c6e1c67c1
+      internalID: -1602658116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_5
+      name: Skeleton Dead_5
       rect:
         serializedVersion: 2
-        x: 25
-        y: 754
-        width: 574
-        height: 44
+        x: 165
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 354c1435137a5c24eb804b84cdc7cf63
-      internalID: 1969626988
+      spriteID: 340eb51163b929a4ba5fda71cedbc0b9
+      internalID: 112617170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_6
+      name: Skeleton Dead_6
       rect:
         serializedVersion: 2
-        x: 616
-        y: 262
-        width: 389
-        height: 364
+        x: 198
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5f3fd5caa7ec7849954f836b854e829
-      internalID: 239982979
+      spriteID: 739c3d047a9493b4dbcee2f80a0aa55a
+      internalID: 1411914861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_7
+      name: Skeleton Dead_7
       rect:
         serializedVersion: 2
-        x: 94
-        y: 381
-        width: 14
-        height: 5
+        x: 231
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbc0b6486280f9b4392b1491c9caa4bf
-      internalID: -429643460
+      spriteID: d812b32ccc92cea4fa33d37fdac3a5c0
+      internalID: 1299996187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_8
+      name: Skeleton Dead_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
-        width: 191
-        height: 364
+        x: 264
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637b7340cab7bcd4499c294e970a6e8e
-      internalID: 2065601567
+      spriteID: 268527202aeb45c499a14de4e42fe66f
+      internalID: -1806852701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_9
+      name: Skeleton Dead_9
       rect:
         serializedVersion: 2
-        x: 274
-        y: 317
-        width: 303
-        height: 62
+        x: 297
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8711d8cd972040a4fbfe83bb2d7ed255
-      internalID: -1567520136
+      spriteID: ebf7588206bb3554e877b058da1fbdfc
+      internalID: 1940121901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_10
+      name: Skeleton Dead_10
       rect:
         serializedVersion: 2
-        x: 293
-        y: 145
-        width: 267
-        height: 158
+        x: 330
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc182afc598e1d54594f58d7f0568843
-      internalID: -2133957457
+      spriteID: cd618aa36f169e74bac74398ec25064b
+      internalID: 2116750379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_11
+      name: Skeleton Dead_11
       rect:
         serializedVersion: 2
-        x: 628
-        y: 168
-        width: 356
-        height: 63
+        x: 363
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82925e43119b34844a3cb8068e2435f8
-      internalID: -1794660475
+      spriteID: 4ac5a7af499d5a64eaa0178480a7d0ea
+      internalID: -1659251042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_12
+      name: Skeleton Dead_12
       rect:
         serializedVersion: 2
-        x: 853
-        y: 135
-        width: 14
-        height: 6
+        x: 396
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b10c5474f5dc1c40b81a273c312bba6
-      internalID: 1649724828
+      spriteID: bac2de6cb061e604185067b5704d2f22
+      internalID: -1380440362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_13
+      name: Skeleton Dead_13
       rect:
         serializedVersion: 2
-        x: 268
-        y: 18
-        width: 389
-        height: 104
+        x: 429
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 216df03a6288d43479a2872dbce89a73
-      internalID: 1443725060
+      spriteID: 5d7e787c5ca899f4ab965308abc7ff54
+      internalID: -612347492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cave - Platforms 1_14
+      name: Skeleton Dead_14
       rect:
         serializedVersion: 2
-        x: 722
-        y: 31
-        width: 191
-        height: 104
+        x: 462
+        y: 0
+        width: 33
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0bbc6ce599f2c14c8e4028a7d9682be
-      internalID: -863766787
+      spriteID: 335d5d4afb7116f4a9a21d9a8c49e21e
+      internalID: -1420253150
       vertices: []
       indices: 
       edges: []
@@ -422,21 +422,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cave - Platforms 1_0: 136261337
-      Cave - Platforms 1_1: 2079006366
-      Cave - Platforms 1_10: -2133957457
-      Cave - Platforms 1_11: -1794660475
-      Cave - Platforms 1_12: 1649724828
-      Cave - Platforms 1_13: 1443725060
-      Cave - Platforms 1_14: -863766787
-      Cave - Platforms 1_2: 1979094252
-      Cave - Platforms 1_3: -1691730811
-      Cave - Platforms 1_4: 1912836746
-      Cave - Platforms 1_5: 1969626988
-      Cave - Platforms 1_6: 239982979
-      Cave - Platforms 1_7: -429643460
-      Cave - Platforms 1_8: 2065601567
-      Cave - Platforms 1_9: -1567520136
+      Skeleton Dead_0: -681470415
+      Skeleton Dead_1: -1197217991
+      Skeleton Dead_10: 2116750379
+      Skeleton Dead_11: -1659251042
+      Skeleton Dead_12: -1380440362
+      Skeleton Dead_13: -612347492
+      Skeleton Dead_14: -1420253150
+      Skeleton Dead_2: 7431504
+      Skeleton Dead_3: -1188304990
+      Skeleton Dead_4: -1602658116
+      Skeleton Dead_5: 112617170
+      Skeleton Dead_6: 1411914861
+      Skeleton Dead_7: 1299996187
+      Skeleton Dead_8: -1806852701
+      Skeleton Dead_9: 1940121901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
