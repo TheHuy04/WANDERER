@@ -78,4 +78,3 @@ public class TouchingDirections : MonoBehaviour
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
     }
 }
-

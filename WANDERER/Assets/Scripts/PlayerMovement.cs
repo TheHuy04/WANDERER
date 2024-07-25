@@ -149,6 +149,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void onSpAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetTrigger(AnimationStrings.SpAtkTrigger);
+        }
+    }
+
 
     public void onRun(InputAction.CallbackContext context)
     {
