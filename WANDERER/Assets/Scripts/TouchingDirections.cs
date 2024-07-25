@@ -74,8 +74,26 @@ public class TouchingDirections : MonoBehaviour
     private void FixedUpdate()
     {
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
-        IsOnWall = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance) > 0;
+
+        // Check for walls only if not grounded
+        if (!IsGrounded)
+        {
+            IsOnWall = false;
+            int wallHitCount = touchingCol.Cast(wallCheckDirection, castFilter, wallHits, wallDistance);
+            for (int i = 0; i < wallHitCount; i++)
+            {
+                if (wallHits[i].collider != null && wallHits[i].collider.tag != "Spike")
+                {
+                    IsOnWall = true;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            IsOnWall = false;
+        }
+
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
     }
 }
-
