@@ -235,7 +235,8 @@ MonoBehaviour:
   walkSpeed: 8
   runSpeed: 15
   airSpeed: 5
-  jumpPower: 30
+  jumpPower: 25
+  maxJumps: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
