@@ -13,14 +13,14 @@ TagManager:
   - UI
   - 
   - 
-  - Ground1
-  - Wall1
-  - Player1
-  - Enemy1
-  - PlayerHitbox1
-  - EnemyHitbox1
-  - GroundDetection
-  - Pickup
+  - Ground1()
+  - Wall1()
+  - Player1()
+  - Enemy1()
+  - PlayerHitbox1()
+  - EnemyHitbox1()
+  - GroundDetection()
+  - Pickup()
   - 
   - 
   - 
@@ -38,16 +38,16 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Background(1)
     uniqueID: 2895618605
     locked: 0
-  - name: Background2
+  - name: Background(2)
     uniqueID: 622128903
     locked: 0
-  - name: water
+  - name: water()
     uniqueID: 2694085131
     locked: 0
-  - name: Ground
+  - name: Ground()
     uniqueID: 3489361483
     locked: 0
   - name: Default
