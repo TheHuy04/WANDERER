@@ -33,7 +33,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1957829500788005292}
-    m_Position: {x: 372.35953, y: 53.37078, z: 0}
+    m_Position: {x: 370, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 1.25
+  fadeDelay: 0
 --- !u!114 &-1776155831549316427
 MonoBehaviour:
   m_ObjectHideFlags: 1

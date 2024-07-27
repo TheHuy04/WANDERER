@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed;
     [SerializeField] private float airSpeed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private int maxJumps = 2; // Maximum number of jumps allowed
+    private int jumpCount; // Current number of jumps performed
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     private Rigidbody2D rb;
@@ -20,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     DamageAble damageAble;
-    
+
 
     public float currentMoveSpeed
     {
         get
         {
-            if(CanMove)
+            if (CanMove)
             {
                 if (IsMoving && !touchingDirections.IsOnWall)
                 {
@@ -49,11 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     return 0;
                 }
-            }else
+            }
+            else
             {
                 return 0;
             }
-            
+
         }
     }
 
@@ -88,10 +91,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public bool CanMove { get
+    public bool CanMove
+    {
+        get
         {
             return animator.GetBool(AnimationStrings.canMove);
-        } }
+        }
+    }
 
     public bool _isFacingRight = true;
     public bool IsFacingRight
@@ -102,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         }
         private set
         {
-            if(IsFacingRight!=value)
+            if (IsFacingRight != value)
             {
                 transform.localScale *= new Vector2(-1, 1);
             }
@@ -119,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+
 
     private void Awake()
     {
@@ -129,21 +135,26 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         damageAble = GetComponent<DamageAble>();
-        
+
     }
 
 
     private void FixedUpdate()
     {
-        if(!damageAble.lockVelocity)
+        if (!damageAble.lockVelocity)
             rb.velocity = new Vector2(moveInput.x * currentMoveSpeed, rb.velocity.y);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
+
+        if (touchingDirections.IsGrounded)
+        {
+            ResetJumpCount(); // Reset jump count when grounded
+        }
     }
 
     public void onAttack(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             animator.SetTrigger(AnimationStrings.attack1Trigger);
         }
@@ -160,10 +171,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void onRun(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             IsRunning = true;
-        }else if(context.canceled)
+        }
+        else if (context.canceled)
         {
             IsRunning = false;
         }
@@ -173,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
 
-        if(IsAlive)
+        if (IsAlive)
         {
             IsMoving = moveInput != Vector2.zero;
 
@@ -183,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsMoving = false;
         }
-        
+
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -200,15 +212,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void onJump(InputAction.CallbackContext context)
     {
-        if(context.started && touchingDirections.IsGrounded && CanMove)
+        if (context.started && jumpCount < maxJumps && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumpCount++;
         }
     }
 
     public void OnHit(int damage, Vector2 knockBack)
     {
         rb.velocity = new Vector2(knockBack.x, rb.velocity.y + knockBack.y);
+    }
+
+    private void ResetJumpCount()
+    {
+        jumpCount = 0;
     }
 }
