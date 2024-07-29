@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +9,9 @@ public class ManaAble : MonoBehaviour
 
     public UnityEvent<int, int> manaChanged;
 
+    [SerializeField]
+    private int manaRegenRate = 5; // Mana regenerated per second
+
     private void Awake()
     {
         MaxMana = 100; // Set your default max mana
@@ -16,6 +19,11 @@ public class ManaAble : MonoBehaviour
 
         if (manaChanged == null)
             manaChanged = new UnityEvent<int, int>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(RegenerateMana());
     }
 
     public bool CanCastSkill(int manaCost)
@@ -42,5 +50,14 @@ public class ManaAble : MonoBehaviour
         Mana += amount;
         Mana = Mathf.Clamp(Mana, 0, MaxMana);
         manaChanged.Invoke(Mana, MaxMana);
+    }
+
+    private IEnumerator RegenerateMana()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            RecoverMana(manaRegenRate);
+        }
     }
 }
