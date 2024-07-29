@@ -138,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.38, y: 2.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 196437801269529674}
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 23
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: cfe0fa6951c1f154b9b57ab17f5559d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
     m_Bits: 512
   _isMoving: 0
   _isRunning: 0
-  _isFacingRight: 1
+  _isFacingRight: 0
 --- !u!50 &4295962924862274296
 Rigidbody2D:
   serializedVersion: 4
@@ -453,7 +453,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2638395489844144762}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3e3deb54377ec644aadda8ab39e230de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -564,6 +564,7 @@ MonoBehaviour:
   manaChanged:
     m_PersistentCalls:
       m_Calls: []
+  manaRegenRate: 5
 --- !u!1 &2982299486140977131
 GameObject:
   m_ObjectHideFlags: 0

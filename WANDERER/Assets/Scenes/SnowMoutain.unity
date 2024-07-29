@@ -41629,10 +41629,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2135937007549622592, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3e3deb54377ec644aadda8ab39e230de, type: 2}
     - target: {fileID: 2638395489844144762, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_Name
       value: Player
@@ -41660,10 +41656,6 @@ PrefabInstance:
     - target: {fileID: 4959395301244509592, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: knockBack.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5224089667777300003, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: manaChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5224089667777300003, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: manaChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -41707,18 +41699,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639547857088978365, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7861323338122630351, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7861323338122630351, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7861323338122630351, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
-      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7899087337044739099, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
