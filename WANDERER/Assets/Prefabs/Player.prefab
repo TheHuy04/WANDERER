@@ -548,7 +548,7 @@ MonoBehaviour:
   _maxHealth: 100
   _health: 100
   _isAlive: 1
-  isInvicible: 0
+  isInvincible: 0
   invincibilityTime: 0.5
 --- !u!114 &5224089667777300003
 MonoBehaviour:
@@ -578,6 +578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1468855e85a1ba24e9d964cd8e335669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointSound: {fileID: 0}
+  maxDeaths: 2
 --- !u!1 &2982299486140977131
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,6 @@ public class DamageAble : MonoBehaviour
                 if (!value)
                 {
                     damageableDeath.Invoke();
-                    playerRespawnn?.Respawn();
                 }
             }
         }
@@ -125,8 +124,9 @@ public class DamageAble : MonoBehaviour
 
     public void Respawn()
     {
-        Heal(MaxHealth);
+        Health = MaxHealth;
         IsAlive = true;
+        isInvincible = false;
         animator.Play("Idle"); // Ensure "Idle" animation exists in the Animator
     }
 }
