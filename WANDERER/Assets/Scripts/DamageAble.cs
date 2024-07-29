@@ -7,38 +7,29 @@ public class DamageAble : MonoBehaviour
     public UnityEvent damageableDeath;
     public UnityEvent<int, int> healthChanged;
 
-    Animator animator;
+    private Animator animator;
+    private PlayerRespawnn playerRespawnn;
 
     [SerializeField]
     private int _maxHealth = 100;
     public int MaxHealth
     {
-        get
-        {
-            return _maxHealth;
-        }
-        set 
-        { 
-            _maxHealth = value;
-        }
+        get => _maxHealth;
+        set => _maxHealth = value;
     }
 
     [SerializeField]
     private int _health = 100;
-
     public int Health
     {
-        get
-        {
-            return _health;
-        }
+        get => _health;
         set
         {
             _health = value;
-            healthChanged?.Invoke(_health,MaxHealth);
+            healthChanged?.Invoke(_health, MaxHealth);
 
-            //if health drops below 0, character is no longer alive
-            if(_health <= 0)
+            // Check if health drops below 0 to set IsAlive status
+            if (_health <= 0)
             {
                 IsAlive = false;
             }
@@ -47,76 +38,67 @@ public class DamageAble : MonoBehaviour
 
     [SerializeField]
     private bool _isAlive = true;
-
-    [SerializeField]
-    private bool isInvicible = false;
-
-   
-
-    private float timeSinceHit = 0;
-    public float invincibilityTime = 0.25f;
-
-    public bool IsAlive 
-    {   get 
-        { 
-            return _isAlive; 
-        }
+    public bool IsAlive
+    {
+        get => _isAlive;
         set
         {
-            _isAlive = value;
-            animator.SetBool(AnimationStrings.isAlive, value);
-            Debug.Log("IsAlive set " + value);
-
-            if(value == false )
+            if (_isAlive != value)
             {
-                damageableDeath.Invoke();
+                _isAlive = value;
+                animator.SetBool(AnimationStrings.isAlive, value);
+                Debug.Log("IsAlive set " + value);
+
+                if (!value)
+                {
+                    damageableDeath.Invoke();
+                    playerRespawnn?.Respawn();
+                }
             }
         }
     }
 
+    [SerializeField]
+    private bool isInvincible = false;
+
+    private float timeSinceHit = 0;
+    public float invincibilityTime = 0.25f;
+
     public bool lockVelocity
     {
-        get
-        {
-            return animator.GetBool(AnimationStrings.lockVelocity);
-        }
-        set
-        {
-            animator.SetBool(AnimationStrings.lockVelocity, value);
-        }
+        get => animator.GetBool(AnimationStrings.lockVelocity);
+        set => animator.SetBool(AnimationStrings.lockVelocity, value);
     }
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        playerRespawnn = GetComponent<PlayerRespawnn>();
     }
 
     private void Update()
     {
-        if(isInvicible)
+        if (isInvincible)
         {
-            if(timeSinceHit > invincibilityTime)
+            timeSinceHit += Time.deltaTime;
+            if (timeSinceHit > invincibilityTime)
             {
-                // remove invincibility
-                isInvicible = false;
+                // Remove invincibility
+                isInvincible = false;
                 timeSinceHit = 0;
             }
-
-            timeSinceHit += Time.deltaTime;
         }
-
-        
     }
 
-    // Returns whenever the damageable took damage or not
+    // Returns whether the damageable took damage or not
     public bool Hit(int damage, Vector2 knockBack)
     {
-        if(IsAlive && !isInvicible)
+        if (IsAlive && !isInvincible)
         {
             Health -= damage;
-            isInvicible = true;
+            isInvincible = true;
 
-            // Notify other subcribed components that the damageable was hit to handle the knockback and such
+            // Notify other subscribed components that the damageable was hit
             animator.SetTrigger(AnimationStrings.hitTrigger);
             lockVelocity = true;
             damageableHit?.Invoke(damage, knockBack);
@@ -129,18 +111,22 @@ public class DamageAble : MonoBehaviour
 
     public bool Heal(int healthRestore)
     {
-        if(IsAlive && Health < MaxHealth)
+        if (IsAlive && Health < MaxHealth)
         {
             int maxHeal = Mathf.Max(MaxHealth - Health, 0);
             int actualHeal = Mathf.Min(maxHeal, healthRestore);
             Health += actualHeal;
-            CharacterEvents.characterHealed(gameObject, actualHeal);
+            CharacterEvents.characterHealed.Invoke(gameObject, actualHeal);
             return true;
         }
 
         return false;
     }
 
-
-    
+    public void Respawn()
+    {
+        Heal(MaxHealth);
+        IsAlive = true;
+        animator.Play("Idle"); // Ensure "Idle" animation exists in the Animator
+    }
 }
