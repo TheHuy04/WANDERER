@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
+            Debug.Log("Attack3 triggered");
             animator.SetTrigger(AnimationStrings.attack3Trigger);
         }
     }
@@ -174,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
+            Debug.Log("AttackSP triggered");
             animator.SetTrigger(AnimationStrings.SpAtkTrigger);
         }
     }
