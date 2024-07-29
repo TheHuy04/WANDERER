@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
             if (manaAble.CanCastSkill(skillManaCost))
             {
                 // Cast the skill
-                Debug.Log("AttackSP triggered");
+                Debug.Log("Hasagi triggered");
                 animator.SetTrigger(AnimationStrings.attack3Trigger);
 
                 // Use the mana required for the skill
