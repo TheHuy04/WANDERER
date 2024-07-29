@@ -422,6 +422,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d5ca25dd-e851-446d-9ab7-9e823453b4d5
     m_ActionName: Player/SpATK[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5014891525573866197}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: onATK3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dcdb5e05-7f98-466f-b620-f441a35af424
+    m_ActionName: Player/atk3[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -459,8 +475,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.042173386, y: -2.783599}
-  m_Size: {x: 1.1961937, y: 2.3610153}
+  m_Offset: {x: 0.042173386, y: -2.766296}
+  m_Size: {x: 1.1961937, y: 2.3125668}
   m_Direction: 0
 --- !u!114 &784179150874076225
 MonoBehaviour:

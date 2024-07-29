@@ -169,6 +169,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger(AnimationStrings.SpAtkTrigger);
         }
     }
+    public void onATK3(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetTrigger(AnimationStrings.atk3Trigger);
+        }
+    }
 
 
     public void onRun(InputAction.CallbackContext context)
