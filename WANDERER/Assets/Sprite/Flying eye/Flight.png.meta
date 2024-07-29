@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dde8169c3af6b0d4d9da29e938e96bfb
+guid: f1f8bbef6e4b55e4cb2503bc457f2649
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,85 +97,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Take Hit_0
+      name: Flight_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 49
-        width: 33
-        height: 36
+        x: 57
+        y: 58
+        width: 41
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6098ac245b06ab54fbe541f08273e1b1
-      internalID: -1845321560
+      spriteID: e513394892305b6498a6d97480382553
+      internalID: 1763245354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_1
+      name: Flight_1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 49
-        width: 33
-        height: 36
+        x: 207
+        y: 58
+        width: 41
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672b307b1af376d418ad5f914ad97956
-      internalID: 858319886
+      spriteID: 74778a31d08e0364ca7132e733165e19
+      internalID: -955105991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_3
+      name: Flight_2
       rect:
         serializedVersion: 2
-        x: 354
-        y: 49
-        width: 42
-        height: 37
+        x: 357
+        y: 61
+        width: 40
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00c33e12a39f1154ba0cebee909a6db8
-      internalID: 2052793612
+      spriteID: e52bd0b629e04924993a422d0e7469a4
+      internalID: -1747615399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_5
+      name: Flight_3
       rect:
         serializedVersion: 2
-        x: 504
-        y: 49
+        x: 508
+        y: 60
         width: 39
-        height: 37
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 553ed1be4400419448e36b2326ba8674
-      internalID: -861144717
+      spriteID: 71536f2f05525bd428c01a44b7a61156
+      internalID: 1902244194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flight_4
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 60
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900b9bd2e4bb3524298c323109300afa
+      internalID: -560437351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flight_5
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 59
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093305e5f938fdc4f95029d0ed4f943e
+      internalID: 1278822450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flight_6
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 58
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ad47f3cb585654391bab3b91fbb1fd
+      internalID: -2014485876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flight_7
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 57
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3ea7a686ce85c4ab290c3b57a1fb65
+      internalID: 76789147
       vertices: []
       indices: 
       edges: []
@@ -191,12 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Take Hit_0: -1845321560
-      Take Hit_1: 858319886
-      Take Hit_2: -795209213
-      Take Hit_3: 2052793612
-      Take Hit_4: -1688461347
-      Take Hit_5: -861144717
+      Flight_0: 1763245354
+      Flight_1: -955105991
+      Flight_2: -1747615399
+      Flight_3: 1902244194
+      Flight_4: -560437351
+      Flight_5: 1278822450
+      Flight_6: -2014485876
+      Flight_7: 76789147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
