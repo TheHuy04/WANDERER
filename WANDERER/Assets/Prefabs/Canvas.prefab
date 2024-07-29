@@ -1086,7 +1086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248417840377176945}
   - component: {fileID: 3988210220677301208}
-  - component: {fileID: 2640628580358544634}
+  - component: {fileID: 8470947680914750596}
   m_Layer: 5
   m_Name: ManaBarr
   m_TagString: Untagged
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2640628580358544634
+--- !u!114 &8470947680914750596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1176,11 +1176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8012520748835402265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017bbce65a5285c4cbdb612b6204df28, type: 3}
+  m_Script: {fileID: 11500000, guid: d461856f90c49c246887bfd75225b8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarText: {fileID: 7162178244957020233}
-  healthBarSlider: {fileID: 3988210220677301208}
+  manaBarText: {fileID: 7162178244957020233}
+  manaBarSlider: {fileID: 3988210220677301208}
 --- !u!1 &8424893578838368788
 GameObject:
   m_ObjectHideFlags: 0

@@ -41661,6 +41661,14 @@ PrefabInstance:
       propertyPath: knockBack.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5224089667777300003, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: manaChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224089667777300003, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: manaChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6639547857088978365, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.87

@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     DamageAble damageAble;
+    ManaAble manaAble;
 
 
     public float currentMoveSpeed
@@ -137,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         damageAble = GetComponent<DamageAble>();
+        manaAble = GetComponent<ManaAble>();
 
     }
 
@@ -158,8 +160,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Attack3 triggered");
-            animator.SetTrigger(AnimationStrings.attack3Trigger);
+            int skillManaCost = 20; // Example mana cost for the skill
+            if (manaAble.CanCastSkill(skillManaCost))
+            {
+                // Cast the skill
+                Debug.Log("AttackSP triggered");
+                animator.SetTrigger(AnimationStrings.attack3Trigger);
+
+                // Use the mana required for the skill
+                manaAble.UseMana(skillManaCost);
+            }
+            else
+            {
+                Debug.Log("Not enough mana to cast skill");
+            }
         }
     }
 
@@ -175,8 +189,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("AttackSP triggered");
-            animator.SetTrigger(AnimationStrings.SpAtkTrigger);
+            int skillManaCost = 40; // Example mana cost for the skill
+            if (manaAble.CanCastSkill(skillManaCost))
+            {
+                // Cast the skill
+                Debug.Log("AttackSP triggered");
+                animator.SetTrigger(AnimationStrings.SpAtkTrigger);
+
+                // Use the mana required for the skill
+                manaAble.UseMana(skillManaCost);
+            }
+            else
+            {
+                Debug.Log("Not enough mana to cast skill");
+            }
         }
     }
 
