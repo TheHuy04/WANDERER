@@ -426,7 +426,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5014891525573866197}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: onATK3
+        m_MethodName: onAttack3
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_ActionId: dcdb5e05-7f98-466f-b620-f441a35af424
     m_ActionName: Player/atk3[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
