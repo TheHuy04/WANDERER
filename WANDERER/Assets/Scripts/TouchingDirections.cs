@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class TouchingDirections : MonoBehaviour
 {
     public ContactFilter2D castFilter;
@@ -14,7 +13,6 @@ public class TouchingDirections : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D touchingCol;
     Animator animator;
-
     [SerializeField]
     private bool _isGrounded;
     public bool IsGrounded
@@ -29,7 +27,6 @@ public class TouchingDirections : MonoBehaviour
             animator.SetBool(AnimationStrings.isGrounded, value);
         }
     }
-
     [SerializeField]
     private bool _isOnWall;
     public bool IsOnWall
@@ -44,11 +41,9 @@ public class TouchingDirections : MonoBehaviour
             animator.SetBool(AnimationStrings.isOnWall, value);
         }
     }
-
     [SerializeField]
     private bool _isOnCeiling;
     private Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-
     public bool IsOnCeiling
     {
         get
@@ -61,16 +56,12 @@ public class TouchingDirections : MonoBehaviour
             animator.SetBool(AnimationStrings.isOnCeiling, value);
         }
     }
-
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         touchingCol = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
-
-
     private void FixedUpdate()
     {
         IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
@@ -78,3 +69,4 @@ public class TouchingDirections : MonoBehaviour
         IsOnCeiling = touchingCol.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
     }
 }
+

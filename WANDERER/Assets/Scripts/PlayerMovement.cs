@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
+
     [SerializeField]
     private bool _isMoving = false;
     public bool IsMoving

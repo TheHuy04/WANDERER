@@ -459,8 +459,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022598386, y: -2.778297}
-  m_Size: {x: 0.9109762, y: 2.0689821}
+  m_Offset: {x: 0.042173386, y: -2.783599}
+  m_Size: {x: 1.1961937, y: 2.3610153}
   m_Direction: 0
 --- !u!114 &784179150874076225
 MonoBehaviour:
@@ -488,9 +488,9 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  groundDistance: 0.05
-  wallDistance: 0.2
-  ceilingDistance: 0.05
+  groundDistance: 0.1
+  wallDistance: 0.01
+  ceilingDistance: 0.01
   _isGrounded: 0
   _isOnWall: 0
   _isOnCeiling: 0
@@ -522,6 +522,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   damageableDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  healthChanged:
     m_PersistentCalls:
       m_Calls: []
   _maxHealth: 100
