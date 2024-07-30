@@ -4,9 +4,10 @@ using UnityEngine.UI;
 public class PlayerRespawnn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
-    [SerializeField] private int maxLives = 3; // Maximum lives (changed from maxDeaths)
-    [SerializeField] private Image[] heartImages; // Array of heart images in the UI
-    private int currentLives; // Current lives (changed from currentDeaths)
+    [SerializeField] private int maxLives = 3;
+    [SerializeField] private Image[] heartImages;
+    private Vector3 startingPosition;
+    private int currentLives;
     private Transform currentCheckpoint;
     private DamageAble damageAble;
     private AudioSource audioSource;
@@ -20,6 +21,7 @@ public class PlayerRespawnn : MonoBehaviour
         uiManager1 = FindObjectOfType<UIManager1>();
         currentLives = maxLives;
         UpdateHeartUI();
+        startingPosition = transform.position;
     }
 
     private void OnPlayerDeath()
@@ -39,9 +41,17 @@ public class PlayerRespawnn : MonoBehaviour
             }
             else
             {
-                GameOver();
+                ResetPlayerWithoutCheckpoint();
             }
         }
+    }
+
+    private void ResetPlayerWithoutCheckpoint()
+    {
+        // Reset player to starting position or a default position
+        transform.position = transform.position = startingPosition;// Replace with your default starting position
+        damageAble.Respawn();
+        // Don't play checkpoint sound here
     }
 
     public void Respawn()
