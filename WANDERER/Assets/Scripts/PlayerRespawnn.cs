@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRespawnn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
-    [SerializeField] private int maxDeaths = 2; // Maximum allowed deaths before game over
-    private int currentDeaths = 0;
+    [SerializeField] private int maxLives = 3; // Maximum lives (changed from maxDeaths)
+    [SerializeField] private Image[] heartImages; // Array of heart images in the UI
+    private int currentLives; // Current lives (changed from currentDeaths)
     private Transform currentCheckpoint;
     private DamageAble damageAble;
     private AudioSource audioSource;
@@ -16,12 +18,16 @@ public class PlayerRespawnn : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         damageAble.damageableDeath.AddListener(OnPlayerDeath);
         uiManager1 = FindObjectOfType<UIManager1>();
+        currentLives = maxLives;
+        UpdateHeartUI();
     }
 
     private void OnPlayerDeath()
     {
-        currentDeaths++;
-        if (currentDeaths >= maxDeaths)
+        currentLives--;
+        UpdateHeartUI();
+
+        if (currentLives <= 0)
         {
             GameOver();
         }
@@ -42,8 +48,6 @@ public class PlayerRespawnn : MonoBehaviour
     {
         transform.position = currentCheckpoint.position;
         damageAble.Respawn();
-
-        // Play checkpoint sound if available
         if (checkpointSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(checkpointSound);
@@ -52,23 +56,34 @@ public class PlayerRespawnn : MonoBehaviour
 
     public void GameOver()
     {
-        // Game Over logic here
         Debug.Log("Game Over");
-        // You can add more logic to handle the game over state, such as showing a game over screen
         uiManager1.GameOver();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("CheckPointt")) // Ensure this matches your checkpoint tag
+        if (collision.CompareTag("CheckPointt"))
         {
             currentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;
-
-            // Optionally play checkpoint sound
             if (checkpointSound != null && audioSource != null)
             {
                 audioSource.PlayOneShot(checkpointSound);
+            }
+        }
+    }
+
+    private void UpdateHeartUI()
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (i < currentLives)
+            {
+                heartImages[i].enabled = true;
+            }
+            else
+            {
+                heartImages[i].enabled = false;
             }
         }
     }
