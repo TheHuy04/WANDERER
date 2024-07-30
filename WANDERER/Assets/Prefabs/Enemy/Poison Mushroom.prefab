@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2523320999335319432
+--- !u!1 &1084151635355085198
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6241606104283852797}
-  - component: {fileID: 8159228138619487250}
-  - component: {fileID: 3304291051683596949}
-  - component: {fileID: 5241404278113112506}
-  - component: {fileID: 72808290032773587}
+  - component: {fileID: 4536183350970870282}
+  - component: {fileID: 6324637099424241614}
+  - component: {fileID: 1010502412035596398}
+  - component: {fileID: 8741334243382105070}
+  - component: {fileID: 8733349599714596264}
   m_Layer: 0
-  m_Name: Flying eye
+  m_Name: Poison Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6241606104283852797
+--- !u!4 &4536183350970870282
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523320999335319432}
+  m_GameObject: {fileID: 1084151635355085198}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.26, y: 2.69, z: 0.019469531}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04, y: -1.31, z: -0.026714012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8159228138619487250
+--- !u!212 &6324637099424241614
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523320999335319432}
+  m_GameObject: {fileID: 1084151635355085198}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,28 +76,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1763245354, guid: f1f8bbef6e4b55e4cb2503bc457f2649, type: 3}
+  m_Sprite: {fileID: -501506168, guid: cbd069e70a75c664fbd4186f1bf4e79e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5625, y: 1.9375}
+  m_Size: {x: 1.875, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3304291051683596949
+--- !u!95 &1010502412035596398
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523320999335319432}
+  m_GameObject: {fileID: 1084151635355085198}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a768a395e57873342a38f13ff889f95e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e292a8981904e440bf5a3123d2f2ddd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -108,14 +108,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &5241404278113112506
+--- !u!50 &8741334243382105070
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523320999335319432}
+  m_GameObject: {fileID: 1084151635355085198}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -135,13 +135,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &72808290032773587
+--- !u!70 &8733349599714596264
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523320999335319432}
+  m_GameObject: {fileID: 1084151635355085198}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -167,6 +167,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06657603, y: 0.10091842}
-  m_Size: {x: 2.42935, y: 1.4735955}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2.0625002, y: 2.0625002}
   m_Direction: 1
