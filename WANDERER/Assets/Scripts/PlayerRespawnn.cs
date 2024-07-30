@@ -97,4 +97,16 @@ public class PlayerRespawnn : MonoBehaviour
             }
         }
     }
+
+    public bool AddLife()
+    {
+        if (currentLives < maxLives)
+        {
+            currentLives++;
+            UpdateHeartUI();
+            // Optionally play a sound effect here
+            return true; // Life was added successfully
+        }
+        return false; // Life was not added (already at max)
+    }
 }
