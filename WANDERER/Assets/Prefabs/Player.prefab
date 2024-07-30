@@ -578,8 +578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1468855e85a1ba24e9d964cd8e335669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointSound: {fileID: 0}
-  maxDeaths: 2
+  checkpointSound: {fileID: 8300000, guid: 31de9ae558bd4114eb27da3af287040d, type: 3}
+  maxLives: 3
+  heartImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2982299486140977131
 GameObject:
   m_ObjectHideFlags: 0
