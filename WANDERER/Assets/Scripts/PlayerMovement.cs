@@ -13,9 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airSpeed;
     [SerializeField] private float jumpPower;
     [SerializeField] private int maxJumps = 2; // Maximum number of jumps allowed
-    private int jumpCount; // Current number of jumps performed
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private AudioClip jumpSound;
+    private int jumpCount; // Current number of jumps performe
     private Rigidbody2D rb;
     private Animator animator;
     private CapsuleCollider2D capsuleCollider;
@@ -252,8 +251,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void onJump(InputAction.CallbackContext context)
     {
-        if (context.started && jumpCount < maxJumps && CanMove)
+        if (context.started && jumpCount < maxJumps && CanMove && SoundManager.instance != null)
         {
+            SoundManager.instance.PlaySound(jumpSound);
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpCount++;

@@ -89,6 +89,7 @@ public class PlayerRespawnn : MonoBehaviour
         {
             // If it's not a chest, disable its collider
             treasure.GetComponent<Collider2D>().enabled = false;
+            Destroy(treasure);
         }
     }
 

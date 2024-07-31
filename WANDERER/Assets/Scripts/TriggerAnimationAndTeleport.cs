@@ -7,6 +7,7 @@ public class TriggerAnimationAndTeleport : MonoBehaviour
     public string animationTriggerName = "Teleport"; // Name of the trigger parameter in your Animator
     public string nextSceneName = "_MainMenu"; // Name of the scene to load
     private Animator animator;
+    [SerializeField] private AudioClip teleSound;
 
     void Start()
     {
@@ -27,8 +28,12 @@ public class TriggerAnimationAndTeleport : MonoBehaviour
 
     IEnumerator TriggerAnimationAndTeleportCoroutine()
     {
-        animator.SetTrigger(animationTriggerName); // Trigger the animation
-        yield return new WaitForSeconds(4f); // Wait for 2 seconds
-        SceneManager.LoadScene(nextSceneName); // Load the next scene
+        if (SoundManager.instance != null)
+        {
+            animator.SetTrigger(animationTriggerName); // Trigger the animation
+            yield return new WaitForSeconds(4f); // Wait for 2 seconds
+            SoundManager.instance.PlaySound(teleSound);
+            SceneManager.LoadScene(nextSceneName); // Load the next scene
+        }
     }
 }
