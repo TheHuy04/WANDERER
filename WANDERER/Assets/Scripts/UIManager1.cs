@@ -16,6 +16,9 @@ public class UIManager1 : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
 
+    [Header("Points")]
+    [SerializeField] private TextMeshProUGUI pointsText;
+
     private DamageAble damageAble;
 
     public Canvas gameCanvas;
@@ -26,6 +29,7 @@ public class UIManager1 : MonoBehaviour
         pauseScreen.SetActive(false);
         gameCanvas = FindObjectOfType<Canvas>();
         damageAble = GetComponent<DamageAble>();
+        UpdatePointsDisplay(0);
     }
 
     private void Update()
@@ -124,4 +128,12 @@ public class UIManager1 : MonoBehaviour
     }
 
     #endregion
+
+    public void UpdatePointsDisplay(int points)
+    {
+        if (pointsText != null)
+        {
+            pointsText.text = $"Points: {points}";
+        }
+    }
 }
