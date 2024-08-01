@@ -1,12 +1,14 @@
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "New Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/New Item")]
 public abstract class ItemClass : ScriptableObject
 {
-    public string itemName;
-    public Sprite itemIcon;
+    public string itemName = "New Item";
+    public Sprite itemIcon = null;
     public bool isStackable = true;
+    public int maxStackQuanity = 99;
+
     public abstract ItemClass GetItem();
     public abstract ToolClass GetTool();
     public abstract MiscClass GetMisc();
