@@ -191,7 +191,7 @@ MonoBehaviour:
   walkAcceleration: 50
   maxSpeed: 3
   walkStopRate: 0.05
-  attackZone: {fileID: 0}
+  attackZone: {fileID: 4101632344095797380}
   cliffDetectionZone: {fileID: 2965456083348537218}
   _hasTarget: 0
 --- !u!114 &100612443250866521
@@ -208,14 +208,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 256
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   damageableHit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2939153066335478637, guid: 99db97eb080950046bd7dee79cef7355, type: 3}
+      - m_Target: {fileID: 2120484908572443204}
         m_TargetAssemblyTypeName: Golem, Assembly-CSharp
         m_MethodName: onHit
         m_Mode: 0
@@ -304,7 +304,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3443228825174715590}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaf792e8ac1f44468a560595dd446a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
-  knockBack: {x: 0, y: 0}
+  attackDamage: 25
+  knockBack: {x: 1, y: 1}
 --- !u!1 &5165702514608067161
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 4769155177898748399}
   - component: {fileID: 302816626527130715}
   - component: {fileID: 2965456083348537218}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: CliffDectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ Transform:
   m_GameObject: {fileID: 5165702514608067161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.73, y: -1.48, z: 0}
+  m_LocalPosition: {x: 1.35, y: -2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,7 +456,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noCollidersRemain:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2120484908572443204}
+        m_TargetAssemblyTypeName: Golem, Assembly-CSharp
+        m_MethodName: OnCliffDetected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   detectedCollinders: []
 --- !u!1 &7256074819282507044
 GameObject:
@@ -469,7 +481,7 @@ GameObject:
   - component: {fileID: 4468091661791076419}
   - component: {fileID: 8520141264054083584}
   - component: {fileID: 4101632344095797380}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: HitBoxDetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +535,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07895851, y: -0.60205555}
+  m_Offset: {x: 0.48146248, y: -0.60205555}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -534,7 +546,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6975975, y: 1.2566128}
+  m_Size: {x: 2.171238, y: 1.2566128}
   m_EdgeRadius: 0
 --- !u!114 &4101632344095797380
 MonoBehaviour:
