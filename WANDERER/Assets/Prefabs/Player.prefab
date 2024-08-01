@@ -239,12 +239,7 @@ MonoBehaviour:
   airSpeed: 5
   jumpPower: 25
   maxJumps: 1
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  jumpSound: {fileID: 8300000, guid: 4e33a8316f0e5164583983e3d4def0bc, type: 3}
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 0
