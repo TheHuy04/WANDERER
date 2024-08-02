@@ -7,6 +7,8 @@ TagManager:
   - CheckPointt
   - Ground
   - CongDichChuyen
+  - Treasure
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: 1
+    uniqueID: 1772975741
+    locked: 0
+  - name: 2
+    uniqueID: 699047555
+    locked: 0
+  - name: 3
+    uniqueID: 881291883
+    locked: 0
   - name: Background(1)
     uniqueID: 2895618605
     locked: 0
@@ -59,15 +70,6 @@ TagManager:
   - name: New Layer 5
     uniqueID: 727871685
     locked: 0
-  - name: 1
-    uniqueID: 1772975741
-    locked: 0
-  - name: 2
-    uniqueID: 699047555
-    locked: 0
-  - name: 3
-    uniqueID: 881291883
-    locked: 0
   - name: ' BG SAU'
     uniqueID: 3602085035
     locked: 0
@@ -82,6 +84,9 @@ TagManager:
     locked: 0
   - name: npc
     uniqueID: 2686077771
+    locked: 0
+  - name: Golem
+    uniqueID: 3965472611
     locked: 0
   - name: PL
     uniqueID: 544562895

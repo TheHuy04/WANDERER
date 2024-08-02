@@ -24,6 +24,7 @@ public class SlotClass
     public int GetQuatity() { return this.quatity; }
     public void AddQuatity( int _quatity) { quatity = quatity + _quatity; }
     public void SubQuatity( int _quatity) { quatity = quatity - _quatity; }
+    public void SetQuatity( int _quatity) { quatity = _quatity; }
     public void AddItem(ItemClass item, int quantity)
     {
         this.item = item;

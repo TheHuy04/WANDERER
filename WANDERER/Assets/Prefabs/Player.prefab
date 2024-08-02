@@ -239,12 +239,7 @@ MonoBehaviour:
   airSpeed: 5
   jumpPower: 25
   maxJumps: 1
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  jumpSound: {fileID: 8300000, guid: 4e33a8316f0e5164583983e3d4def0bc, type: 3}
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 0
@@ -579,11 +574,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointSound: {fileID: 8300000, guid: 31de9ae558bd4114eb27da3af287040d, type: 3}
+  chestSound: {fileID: 8300000, guid: 8603a15d59f28264bbc2bda7438af9dd, type: 3}
+  openChestSound: {fileID: 8300000, guid: d3b1d2f35bc39df408cee56dbd3ac8dc, type: 3}
   maxLives: 3
   heartImages:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  points: 0
+  pointsPerTreasure: 10
+  interactionDistance: 3
+  interactionKey: 113
 --- !u!1 &2982299486140977131
 GameObject:
   m_ObjectHideFlags: 0
