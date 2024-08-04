@@ -1021,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4396054997317903872, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
+      propertyPath: heartImages.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5014891525573866197, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1073,7 +1077,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4396054997317903872, guid: 5192d5950bbaa3549991cbf1d7448900, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
