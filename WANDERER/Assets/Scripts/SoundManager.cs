@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -15,7 +13,7 @@ public class SoundManager : MonoBehaviour
             instance = this;
             //DontDestroyOnLoad(gameObject);
         }
-        else if (instance != null && instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
             return;
@@ -24,8 +22,9 @@ public class SoundManager : MonoBehaviour
         soundSource = GetComponent<AudioSource>();
         musicSource = transform.GetChild(0).GetComponent<AudioSource>();
 
-        ChangeMusicVolume(0);
-        ChangeSoundVolume(0);
+        // Initialize volumes
+        SetSoundVolume(GetSoundVolume());
+        SetMusicVolume(GetMusicVolume());
     }
 
     public void PlaySound(AudioClip _sound)
@@ -35,55 +34,35 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeSoundVolume(float _change)
     {
-        ChangeSourceVolume(1, "soundVolume", _change, soundSource);
+        SetSoundVolume(GetSoundVolume() + _change);
     }
 
     public void ChangeMusicVolume(float _change)
     {
-        ChangeSourceVolume(1, "musicVolume", _change, musicSource);
-    }
-
-    private void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)
-    {
-        // get initial value of volume and change it
-        float currentVolume = PlayerPrefs.GetFloat(volumeName, 1);
-        currentVolume += change;
-
-        //check if  we reached the maxium or minium value
-        if (currentVolume > 1)
-        {
-            currentVolume = 0;
-        }
-        else if (currentVolume < 0)
-        {
-            currentVolume = 1;
-        }
-
-        //assign final value
-        float finalVolume = currentVolume * baseVolume;
-        source.volume = finalVolume;
-
-        //save final value to player prefs
-        PlayerPrefs.SetFloat(volumeName, finalVolume);
-    }
-
-    public void SetSoundVolume(float volume)
-    {
-        ChangeSourceVolume(1, "soundVolume", volume - soundSource.volume, soundSource);
-    }
-
-    public void SetMusicVolume(float volume)
-    {
-        ChangeSourceVolume(1, "musicVolume", volume - musicSource.volume, musicSource);
+        SetMusicVolume(GetMusicVolume() + _change);
     }
 
     public float GetSoundVolume()
     {
-        return soundSource.volume;
+        return PlayerPrefs.GetFloat("soundVolume", 1f);
     }
 
     public float GetMusicVolume()
     {
-        return musicSource.volume;
+        return PlayerPrefs.GetFloat("musicVolume", 1f);
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("soundVolume", volume);
+        soundSource.volume = volume;
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("musicVolume", volume);
+        musicSource.volume = volume;
     }
 }

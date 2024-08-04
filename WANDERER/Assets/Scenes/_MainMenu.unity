@@ -2713,7 +2713,6 @@ GameObject:
   - component: {fileID: 1854504653}
   - component: {fileID: 1854504652}
   - component: {fileID: 1854504656}
-  - component: {fileID: 1854504657}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2819,18 +2818,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: SnowMoutain
---- !u!114 &1854504657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854504651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafe955722c5d254ab2cf2f5008896aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   soundSlider: {fileID: 1417563058}
   musicSlider: {fileID: 619700814}
 --- !u!1 &1855508352
