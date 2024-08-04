@@ -15,4 +15,16 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SetSoundVolume(float volume)
+    {
+        SoundManager.instance.SetSoundVolume(volume);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        SoundManager.instance.SetMusicVolume(volume);
+    }
+
+
 }
