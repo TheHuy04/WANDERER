@@ -137,6 +137,7 @@ public class DamageAble : MonoBehaviour
             if (healthBar2 != null)
             {
                 healthBar2.SetHealth(Health, MaxHealth);
+                healthBar2.Show();
             }
 
             // Notify other subscribed components that the damageable was hit

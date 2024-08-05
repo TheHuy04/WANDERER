@@ -68,4 +68,10 @@ public class HealthBarMonsters : MonoBehaviour
     {
         canvasGroup.alpha = value;
     }
+
+    private void Start()
+    {
+        // Ensure the health bar is hidden by default
+        Hide();
+    }
 }

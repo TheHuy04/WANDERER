@@ -30,6 +30,6 @@ public class BossHealthBar : MonoBehaviour
     private void Start()
     {
         // Ensure the health bar is hidden by default
-        
+        Hide();
     }
 }
