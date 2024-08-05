@@ -2878,11 +2878,11 @@ Transform:
   m_GameObject: {fileID: 417850718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 86.48844, y: -0.3754066, z: 9.905355}
+  m_LocalPosition: {x: 7.7884445, y: -0.2754066, z: -0.09464455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7583034498607159996}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &417850721
 PolygonCollider2D:
@@ -41771,6 +41771,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 656111752}
+    - target: {fileID: 3601656743174671062, guid: abbd9f38c6cfd0641a211d170c842f74, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 656111752}
     - target: {fileID: 6791743045989906676, guid: abbd9f38c6cfd0641a211d170c842f74, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -41817,17 +41821,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8594253741147027119, guid: abbd9f38c6cfd0641a211d170c842f74, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 417850720}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abbd9f38c6cfd0641a211d170c842f74, type: 3}
---- !u!4 &7583034498607159996 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8594253741147027119, guid: abbd9f38c6cfd0641a211d170c842f74, type: 3}
-  m_PrefabInstance: {fileID: 7583034498607159995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7857093289819242233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42025,6 +42021,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 518850435}
   - {fileID: 7583034498607159995}
+  - {fileID: 417850720}
   - {fileID: 896714444}
   - {fileID: 979779404}
   - {fileID: 1316040951}
