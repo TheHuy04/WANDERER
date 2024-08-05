@@ -6,9 +6,24 @@ public class DamageAble : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
     public UnityEvent<int, int> healthChanged;
+    [SerializeField] private HealthBarMonsters healthBar;
+    [SerializeField] private Vector3 healthBarOffset = new Vector3(0, 2f, 0);
 
     private Animator animator;
     private PlayerRespawnn playerRespawnn;
+
+    private void Start()
+    {
+        if (healthBar == null)
+        {
+            Debug.LogWarning("HealthBar not assigned to DamageAble script!");
+        }
+        else
+        {
+            healthBar.SetHealth(Health, MaxHealth);
+            PositionHealthBar();
+        }
+    }
 
     [SerializeField]
     private int _maxHealth = 100;
@@ -87,6 +102,8 @@ public class DamageAble : MonoBehaviour
                 timeSinceHit = 0;
             }
         }
+
+        PositionHealthBar();
     }
 
     // Returns whether the damageable took damage or not
@@ -96,6 +113,12 @@ public class DamageAble : MonoBehaviour
         {
             Health -= damage;
             isInvincible = true;
+
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(Health, MaxHealth);
+                healthBar.Show();
+            }
 
             // Notify other subscribed components that the damageable was hit
             animator.SetTrigger(AnimationStrings.hitTrigger);
@@ -128,5 +151,21 @@ public class DamageAble : MonoBehaviour
         IsAlive = true;
         isInvincible = false;
         animator.Play("Idle"); // Ensure "Idle" animation exists in the Animator
+    }
+
+    private void PositionHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.transform.position = transform.position + healthBarOffset;
+        }
+    }
+
+    private bool IsVisibleToCamera(Camera camera)
+    {
+        if (camera == null) return false;
+
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+        return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
     }
 }
