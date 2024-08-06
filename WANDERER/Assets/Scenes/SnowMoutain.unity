@@ -3211,7 +3211,7 @@ Transform:
   m_GameObject: {fileID: 518850432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.91149, y: 0.10814, z: -10}
+  m_LocalPosition: {x: -69.92467, y: 0.10814, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7294,7 +7294,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1038409187}
   - component: {fileID: 1038409189}
-  - component: {fileID: 1038409188}
   m_Layer: 0
   m_Name: BG1 (1)
   m_TagString: Untagged
@@ -7319,20 +7318,6 @@ Transform:
   - {fileID: 2047954857}
   m_Father: {fileID: 1581965012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
---- !u!114 &1038409188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038409186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0d68c21f8302b43aea40f370df620b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 518850432}
-  parallaxEffect: 1
 --- !u!212 &1038409189
 SpriteRenderer:
   m_ObjectHideFlags: 0
