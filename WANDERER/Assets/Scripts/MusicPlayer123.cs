@@ -1,20 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayer123 : MonoBehaviour
 {
-    public AudioSource introSource, loopSource;
-    // Start is called before the first frame update
+    public AudioSource introSource;
+    public AudioSource loopSource;
+
     void Start()
     {
-        introSource.Play();
-        loopSource.PlayScheduled(AudioSettings.dspTime + introSource.clip.length);
+        if (introSource != null && introSource.clip != null)
+        {
+            // Play intro and schedule loop
+            introSource.Play();
+            loopSource.PlayScheduled(AudioSettings.dspTime + introSource.clip.length);
+        }
+        else
+        {
+            // No intro, just play the loop
+            loopSource.Play();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // If we have an intro, check when it's finished to start the loop
+        if (introSource != null && introSource.clip != null)
+        {
+            if (!introSource.isPlaying && !loopSource.isPlaying)
+            {
+                loopSource.Play();
+            }
+        }
+
+        // Ensure loop keeps playing
+        if (!loopSource.isPlaying)
+        {
+            loopSource.Play();
+        }
     }
 }
