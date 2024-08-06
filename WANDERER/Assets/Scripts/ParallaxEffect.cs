@@ -14,20 +14,15 @@ public class ParallaxEffect : MonoBehaviour
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        float distance = cam.transform.position.x * parallaxEffect;
-        float movement = cam.transform.position.x * (1 - parallaxEffect);
+        float temp = (cam.transform.position.x * (1 - parallaxEffect));
+        float distance = (cam.transform.position.x * parallaxEffect);
 
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        Vector3 newPosition = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 5f);
 
-        if (movement > startPos + length)
-        {
-            startPos += length;
-        }
-        else if (movement < startPos - length)
-        {
-            startPos -= length;
-        }
+        if (temp > startPos + length) startPos += length;
+        else if (temp < startPos - length) startPos -= length;
     }
 }
