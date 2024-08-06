@@ -33,6 +33,7 @@ public class TriggerAnimationAndTeleport : MonoBehaviour
             animator.SetTrigger(animationTriggerName); // Trigger the animation
             yield return new WaitForSeconds(4f); // Wait for 2 seconds
             SoundManager.instance.PlaySound(teleSound);
+            yield return new WaitForSeconds(0.75f);
             SceneManager.LoadScene(nextSceneName); // Load the next scene
         }
     }

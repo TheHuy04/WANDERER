@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager1 : MonoBehaviour
 {
@@ -12,15 +9,11 @@ public class UIManager1 : MonoBehaviour
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
-
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
-
     [Header("Points")]
     [SerializeField] private TextMeshProUGUI pointsText;
-
     private DamageAble damageAble;
-
     public Canvas gameCanvas;
 
     private void Awake()
@@ -36,14 +29,7 @@ public class UIManager1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseScreen.activeInHierarchy)
-            {
-                PauseGame(false);
-            }
-            else
-            {
-                PauseGame(true);
-            }
+            PauseGame(!pauseScreen.activeInHierarchy);
         }
     }
 
@@ -61,21 +47,21 @@ public class UIManager1 : MonoBehaviour
 
     public void CharacterTookDamage(GameObject character, int damageReceived)
     {
-        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
-
-        TMP_Text tmpText = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).GetComponent<TMP_Text>();
-        tmpText.text = damageReceived.ToString();
+        SpawnFloatingText(character, damageTextPrefab, damageReceived.ToString());
     }
 
     public void CharacterHealed(GameObject character, int healthRestored)
     {
-        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
-
-        TMP_Text tmpText = Instantiate(healthTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).GetComponent<TMP_Text>();
-        tmpText.text = healthRestored.ToString();
+        SpawnFloatingText(character, healthTextPrefab, healthRestored.ToString());
     }
 
-    #region Game Over
+    private void SpawnFloatingText(GameObject character, GameObject textPrefab, string text)
+    {
+        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
+        TMP_Text tmpText = Instantiate(textPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).GetComponent<TMP_Text>();
+        tmpText.text = text;
+    }
+
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
@@ -90,44 +76,37 @@ public class UIManager1 : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void SoundVolume()
+    {
+        float currentVolume = SoundManager.instance.GetSoundVolume();
+        float newVolume = (currentVolume + 0.2f) % 1.0f;
+        SoundManager.instance.SetSoundVolume(newVolume);
+    }
+
+    public void MusicVolume()
+    {
+        float currentVolume = SoundManager.instance.GetMusicVolume();
+        float newVolume = (currentVolume + 0.2f) % 1.0f;
+        SoundManager.instance.SetMusicVolume(newVolume);
     }
 
     public void Quit()
     {
         Application.Quit();
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
     }
-    #endregion
 
-    #region Pause
     public void PauseGame(bool status)
     {
         pauseScreen.SetActive(status);
-
-        if (status)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }    
+        Time.timeScale = status ? 0 : 1;
     }
-
-    public void SoundVolume()
-    {
-        SoundManager.instance.ChangeSoundVolume(0.2f);
-    }
-
-    public void MusicVolume()
-    {
-        SoundManager.instance.ChangeMusicVolume(0.2f);
-    }
-
-    #endregion
 
     public void UpdatePointsDisplay(int points)
     {
