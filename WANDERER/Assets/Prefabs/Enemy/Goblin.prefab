@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 71868865228002979}
   - component: {fileID: 9171716440910569451}
   - component: {fileID: 3449606596529351764}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CliffDetect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9220720789717641656}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -654,7 +654,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noCollidersRemain:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7587474560486369033}
+        m_TargetAssemblyTypeName: Golem, Assembly-CSharp
+        m_MethodName: OnCliffDetected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   detectedCollinders: []
 --- !u!1001 &8041367772858054477
 PrefabInstance:
