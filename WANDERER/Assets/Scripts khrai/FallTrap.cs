@@ -23,13 +23,7 @@ public class FallTrap : MonoBehaviour
             Invoke("khoiPhuc", 2.5f); 
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene("siuuuuu");
-        }
-    }
+   
     private void khoiPhuc()
     {
         rb.isKinematic = true;
