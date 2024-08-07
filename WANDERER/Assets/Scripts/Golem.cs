@@ -10,13 +10,16 @@ public class Golem : MonoBehaviour
     public float walkStopRate = 0.05f;
     public DetectionZone attackZone;
     public DetectionZone cliffDetectionZone;
+    public DetectionZone playerRangeZone; // New collider for player range
     public float targetFollowDistance = 5f; // Distance to keep from the target
+    public float attackRange = 1f; // Distance to trigger attack
 
-    Rigidbody2D rb;
-    TouchingDirections touchingDirections;
-    Animator animator;
-    DamageAble damageAble;
-    Transform target;
+    private Rigidbody2D rb;
+    private TouchingDirections touchingDirections;
+    private Animator animator;
+    private DamageAble damageAble;
+    private Transform target;
+    private Transform player;
 
     public enum WalkableDirection { Right, Left }
     private WalkableDirection _walkDirection;
@@ -29,15 +32,14 @@ public class Golem : MonoBehaviour
         {
             if (_walkDirection != value)
             {
-                //direction flip
-                gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y);
+                // Direction flip
+                transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
                 walkDirectionVector = (value == WalkableDirection.Right) ? Vector2.right : Vector2.left;
             }
             _walkDirection = value;
         }
     }
 
-    public bool _hasTarget = false;
     public bool HasTarget
     {
         get { return _hasTarget; }
@@ -59,6 +61,8 @@ public class Golem : MonoBehaviour
         private set { animator.SetFloat(AnimationStrings.attackCooldown, Mathf.Max(value, 0)); }
     }
 
+    private bool _hasTarget = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,9 +71,10 @@ public class Golem : MonoBehaviour
         damageAble = GetComponent<DamageAble>();
     }
 
-    void Update()
+    private void Update()
     {
         UpdateTargetDetection();
+
         if (AttackCooldown > 0)
         {
             AttackCooldown -= Time.deltaTime;
@@ -87,9 +92,21 @@ public class Golem : MonoBehaviour
         {
             if (CanMove && touchingDirections.IsGrounded)
             {
-                if (HasTarget)
+                if (player != null) // Check if player is in range
                 {
-                    MoveTowardsTarget();
+                    float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+                    if (distanceToPlayer <= attackRange && AttackCooldown < 1e-05f)
+                    {
+                        Attack(); // Trigger attack
+                    }
+                    else
+                    {
+                        MoveTowardsTarget(player.transform); // Move towards player
+                    }
+                }
+                else if (HasTarget)
+                {
+                    MoveTowardsTarget(target); // Move towards other target if player not in range
                 }
                 else
                 {
@@ -116,14 +133,23 @@ public class Golem : MonoBehaviour
             HasTarget = false;
             target = null;
         }
+
+        if (playerRangeZone.detectedCollinders.Count > 0)
+        {
+            player = playerRangeZone.detectedCollinders[0].transform;
+        }
+        else
+        {
+            player = null;
+        }
     }
 
-    private void MoveTowardsTarget()
+    private void MoveTowardsTarget(Transform targetTransform)
     {
-        if (target != null)
+        if (targetTransform != null)
         {
-            Vector2 directionToTarget = (target.position - transform.position).normalized;
-            float distanceToTarget = Vector2.Distance(transform.position, target.position);
+            Vector2 directionToTarget = (targetTransform.position - transform.position).normalized;
+            float distanceToTarget = Vector2.Distance(transform.position, targetTransform.position);
 
             // Determine walk direction based on target position
             WalkDirection = (directionToTarget.x > 0) ? WalkableDirection.Right : WalkableDirection.Left;
@@ -139,6 +165,13 @@ public class Golem : MonoBehaviour
                 rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
             }
         }
+    }
+
+    private void Attack()
+    {
+        // Implement your attack logic here
+         // Example: Trigger attack animation
+        AttackCooldown = 2f; // Set cooldown time (example value)
     }
 
     private void FlipDirection()
