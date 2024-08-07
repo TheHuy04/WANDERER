@@ -35,11 +35,4 @@ public class baygaiNhon : MonoBehaviour
     {
         transform.Rotate(0,0,tocDoXoay);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) 
-        {
-            SceneManager.LoadScene("siuuuuu");        
-        }
-    }
 }
