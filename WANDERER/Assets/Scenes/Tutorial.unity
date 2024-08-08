@@ -11434,7 +11434,7 @@ Transform:
   m_GameObject: {fileID: 817885589}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7060623, y: 3.54773, z: -10}
+  m_LocalPosition: {x: -2.6977692, y: 3.54768, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12021,6 +12021,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8736783130222366112, guid: 52a3ff2a6a3d57d4bb25eafd2b93ec0f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 27e8db1c4406a3b40b1b364707dbff37, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
