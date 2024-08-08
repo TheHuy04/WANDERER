@@ -11434,7 +11434,7 @@ Transform:
   m_GameObject: {fileID: 817885589}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6977692, y: 3.54768, z: -10}
+  m_LocalPosition: {x: -2.7060623, y: 3.54773, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16025,7 +16025,7 @@ PrefabInstance:
       objectReference: {fileID: 1091561511}
     - target: {fileID: 3541523743987070211, guid: 113973f475bf5514cba2a83421f67525, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: You must avenge for me, farewell
+      value: You must revenge for me, farewell
       objectReference: {fileID: 0}
     - target: {fileID: 6975462957218819693, guid: 113973f475bf5514cba2a83421f67525, type: 3}
       propertyPath: m_BodyType
@@ -16661,10 +16661,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1654004012}
     m_Modifications:
-    - target: {fileID: 71868865228002979, guid: fffc347a71149964682382af6c5fbc68, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.14
-      objectReference: {fileID: 0}
     - target: {fileID: 119307711408636261, guid: fffc347a71149964682382af6c5fbc68, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16724,10 +16720,6 @@ PrefabInstance:
     - target: {fileID: 7587474560486369033, guid: fffc347a71149964682382af6c5fbc68, type: 3}
       propertyPath: walkAcceleration
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9220720789717641656, guid: fffc347a71149964682382af6c5fbc68, type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

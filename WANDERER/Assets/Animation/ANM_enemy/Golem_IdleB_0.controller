@@ -74,6 +74,23 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
+--- !u!114 &-4950145025131270115
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34bc798e370689f4a89266c2362ffadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: 
+  updateOnState: 0
+  valueOnEnter: 0
+  valueOnExit: 0
+  updateOnStateMachine: 0
 --- !u!114 &-3872318897234113270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +249,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 1
   fadeDelay: 0
+--- !u!114 &1935943660995734596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454c118754352ef49a85ce5e666dfa58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatName: attackCooldown
+  updateOnStateEnter: 0
+  updateOnStateExit: 1
+  updateOnStateMachineEnter: 0
+  updateOnStateMachineExit: 0
+  valueOnEnter: 0
+  valueOnExit: 0.5
 --- !u!114 &4220252706362597284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,6 +361,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -3135225859208671061}
   - {fileID: 4220252706362597284}
+  - {fileID: 1935943660995734596}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
