@@ -8,31 +8,47 @@ public class InventoryManager : MonoBehaviour
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     public ItemSO[] itemSos;
+
     void Start()
     {
-        
+        // Initialize menuActivated to false, ensuring the game isn't paused at start
+        menuActivated = false;
+        InventoryMenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && menuActivated)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            InventoryMenu.SetActive(false);
-            menuActivated = false;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab) && !menuActivated)
-        {
-            InventoryMenu.SetActive(true);
-            menuActivated = true;
-
+            if (menuActivated)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
         }
     }
 
-    public void UseItem(GameObject player, string itemName) 
+    private void OpenInventory()
     {
-        for(int i = 0; i < itemSos.Length; i++)
+        InventoryMenu.SetActive(true);
+        menuActivated = true;
+        Time.timeScale = 0f; // Pause the game
+    }
+
+    private void CloseInventory()
+    {
+        InventoryMenu.SetActive(false);
+        menuActivated = false;
+        Time.timeScale = 1f; // Resume the game
+    }
+
+    public void UseItem(GameObject player, string itemName)
+    {
+        for (int i = 0; i < itemSos.Length; i++)
         {
             if (itemSos[i].itemName == itemName)
             {
@@ -43,12 +59,12 @@ public class InventoryManager : MonoBehaviour
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDiscription)
     {
-        for(int i = 0; i < itemSlot.Length; i++)
+        for (int i = 0; i < itemSlot.Length; i++)
         {
             if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
             {
                 int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDiscription);
-                if(leftOverItems > 0)
+                if (leftOverItems > 0)
                 {
                     leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDiscription);
                 }
@@ -60,7 +76,7 @@ public class InventoryManager : MonoBehaviour
 
     public void DeselecAllSlots()
     {
-        for(int i = 0; i < itemSlot.Length;i++)
+        for (int i = 0; i < itemSlot.Length; i++)
         {
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
