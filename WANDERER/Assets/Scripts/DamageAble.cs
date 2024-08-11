@@ -67,6 +67,13 @@ public class DamageAble : MonoBehaviour
             }
         }
     }
+    public void ChangeHealth(int amount)
+    {
+        Health += amount;
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
+        healthChanged.Invoke(Health, MaxHealth);
+
+    }
 
     [SerializeField]
     private bool _isAlive = true;

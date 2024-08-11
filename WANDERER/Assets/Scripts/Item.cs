@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,11 @@ public class Item : MonoBehaviour
                 quantity = leftOverItems;
             }
         }
+    }
+
+    internal void SetItemInfo(string itemName, int v, Sprite itemSprite, string itemDescription)
+    {
+        throw new NotImplementedException();
     }
 }
 

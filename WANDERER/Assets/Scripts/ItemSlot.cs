@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -30,10 +30,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool thisItemSelected;
 
     private InventoryManager inventoryManager;
+    private GameObject player;
 
     private void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+        player = GameObject.FindWithTag("Player");
+         
     }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
@@ -89,7 +92,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     {
         if (thisItemSelected)
         {
-            inventoryManager.UseItem(itemName);
+            inventoryManager.UseItem(player, itemName);
             this.quantity -= 1;
             quantityText.text = this.quantity.ToString();
             if (this.quantity <= 0)
