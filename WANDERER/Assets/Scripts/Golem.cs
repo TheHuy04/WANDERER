@@ -13,6 +13,11 @@ public class Golem : MonoBehaviour
     public DetectionZone playerRangeZone; // New collider for player range
     public float targetFollowDistance = 5f; // Distance to keep from the target
     public float attackRange = 1f; // Distance to trigger attack
+    public GameObject projectilePrefab; // Projectile prefab
+    public float minProjectileSpeed = 3f; // Minimum speed of the projectile
+    public float maxProjectileSpeed = 7f; // Maximum speed of the projectile
+    public float shootCooldown = 2f; // Cooldown between shots
+    public bool isBoss = false; // Flag to determine if this character is the boss
 
     private Rigidbody2D rb;
     private TouchingDirections touchingDirections;
@@ -20,6 +25,9 @@ public class Golem : MonoBehaviour
     private DamageAble damageAble;
     private Transform target;
     private Transform player;
+
+    private List<GameObject> activeProjectiles = new List<GameObject>(); // List to keep track of projectiles
+    private float lastShootTime = 0f; // Time since last shot
 
     public enum WalkableDirection { Right, Left }
     private WalkableDirection _walkDirection;
@@ -78,6 +86,12 @@ public class Golem : MonoBehaviour
         if (AttackCooldown > 0)
         {
             AttackCooldown -= Time.deltaTime;
+        }
+
+        // Only boss can shoot
+        if (isBoss && Time.time > lastShootTime + shootCooldown && player != null && Vector2.Distance(transform.position, player.position) > attackRange)
+        {
+            ShootProjectileAtPlayer();
         }
     }
 
@@ -167,10 +181,44 @@ public class Golem : MonoBehaviour
         }
     }
 
+    private void ShootProjectileAtPlayer()
+    {
+        if (projectilePrefab != null && player != null && activeProjectiles.Count < 3)
+        {
+            // Offset the spawn position to avoid collisions with the boss
+            Vector2 spawnPosition = transform.position + Vector3.up * 0.5f; // Adjust as necessary
+            GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+
+            HomingProjectile homingProjectile = projectile.GetComponent<HomingProjectile>();
+            if (homingProjectile != null)
+            {
+                // Assign a random speed to the projectile
+                float randomSpeed = UnityEngine.Random.Range(minProjectileSpeed, maxProjectileSpeed);
+                homingProjectile.speed = randomSpeed;
+                homingProjectile.SetPlayer(player);
+                homingProjectile.SetGolem(this); // Set the reference to this Golem
+            }
+
+            // Add the projectile to the list of active projectiles
+            activeProjectiles.Add(projectile);
+
+            // Update last shoot time
+            lastShootTime = Time.time;
+        }
+    }
+
+    public void OnProjectileDestroyed(GameObject projectile)
+    {
+        if (activeProjectiles.Contains(projectile))
+        {
+            activeProjectiles.Remove(projectile);
+        }
+    }
+
     private void Attack()
     {
         // Implement your attack logic here
-         // Example: Trigger attack animation
+        // Example: Trigger attack animation
         AttackCooldown = 2f; // Set cooldown time (example value)
     }
 
