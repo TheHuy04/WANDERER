@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private int maxJumps = 2; // Maximum number of jumps allowed
     [SerializeField] private AudioClip jumpSound;
+    private bool isAttack3Playing = false;
+    private bool isSpAttackPlaying = false;
     private int jumpCount; // Current number of jumps performe
     private Rigidbody2D rb;
     private Animator animator;
@@ -157,17 +159,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void onAttack3(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !isAttack3Playing)
         {
-            int skillManaCost = 20; // Example mana cost for the skill
+            int skillManaCost = 20;
             if (manaAble.CanCastSkill(skillManaCost))
             {
-                // Cast the skill
+                isAttack3Playing = true;
+                manaAble.UseMana(skillManaCost);
                 Debug.Log("Hasagi triggered");
                 animator.SetTrigger(AnimationStrings.attack3Trigger);
-
-                // Use the mana required for the skill
-                manaAble.UseMana(skillManaCost);
+                StartCoroutine(ResetAttack3Flag());
             }
             else
             {
@@ -186,17 +187,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void onSpAttack(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !isSpAttackPlaying)
         {
-            int skillManaCost = 40; // Example mana cost for the skill
+            int skillManaCost = 40;
             if (manaAble.CanCastSkill(skillManaCost))
             {
-                // Cast the skill
+                isSpAttackPlaying = true;
+                manaAble.UseMana(skillManaCost);
                 Debug.Log("AttackSP triggered");
                 animator.SetTrigger(AnimationStrings.SpAtkTrigger);
-
-                // Use the mana required for the skill
-                manaAble.UseMana(skillManaCost);
+                StartCoroutine(PerformSpAttack());
             }
             else
             {
@@ -205,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+
 
 
     public void onRun(InputAction.CallbackContext context)
@@ -268,5 +268,24 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJumpCount()
     {
         jumpCount = 0;
+    }
+
+    private IEnumerator ResetAttack3Flag()
+    {
+        // Wait for the attack animation to finish
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        isAttack3Playing = false;
+    }
+
+    private IEnumerator PerformSpAttack()
+    {
+        damageAble.SetSpecialInvulnerability(true);
+
+        // Wait for the special attack animation to finish
+        float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationDuration);
+
+        damageAble.SetSpecialInvulnerability(false);
+        isSpAttackPlaying = false;
     }
 }

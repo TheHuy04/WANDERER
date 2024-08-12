@@ -60,4 +60,11 @@ public class ManaAble : MonoBehaviour
             RecoverMana(manaRegenRate);
         }
     }
+    public void ChangeMana(int amount)
+    {
+        Mana += amount;
+        Mana = Mathf.Clamp(Mana, 0, MaxMana);
+        manaChanged.Invoke(Mana, MaxMana);
+
+    }
 }

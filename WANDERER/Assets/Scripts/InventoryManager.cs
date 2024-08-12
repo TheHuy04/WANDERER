@@ -30,13 +30,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void UseItem(string itemName) 
+    public void UseItem(GameObject player, string itemName) 
     {
         for(int i = 0; i < itemSos.Length; i++)
         {
             if (itemSos[i].itemName == itemName)
             {
-                itemSos[i].UseItem();
+                itemSos[i].UseItem(player);
             }
         }
     }

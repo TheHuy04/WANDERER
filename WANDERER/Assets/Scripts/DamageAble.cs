@@ -12,6 +12,8 @@ public class DamageAble : MonoBehaviour
     private Animator animator;
     private PlayerRespawnn playerRespawnn;
 
+    private bool isSpecialInvulnerable = false;
+
     private void Start()
     {
         if (healthBar == null)
@@ -64,6 +66,13 @@ public class DamageAble : MonoBehaviour
                 IsAlive = false;
             }
         }
+    }
+    public void ChangeHealth(int amount)
+    {
+        Health += amount;
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
+        healthChanged.Invoke(Health, MaxHealth);
+
     }
 
     [SerializeField]
@@ -120,33 +129,42 @@ public class DamageAble : MonoBehaviour
         }
     }
 
+    public void SetSpecialInvulnerability(bool invulnerable)
+    {
+        isSpecialInvulnerable = invulnerable;
+    }
+
     // Returns whether the damageable took damage or not
     public bool Hit(int damage, Vector2 knockBack)
     {
-        if (IsAlive && !isInvincible)
+        if (IsAlive && !isInvincible && !isSpecialInvulnerable)
         {
-            Health -= damage;
-            isInvincible = true;
-
-            if (healthBar != null)
+                if (IsAlive && !isInvincible)
             {
-                healthBar.SetHealth(Health, MaxHealth);
-                healthBar.Show();
+                Health -= damage;
+                isInvincible = true;
+
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(Health, MaxHealth);
+                    healthBar.Show();
+                }
+
+                if (healthBar2 != null)
+                {
+                    healthBar2.SetHealth(Health, MaxHealth);
+                    healthBar2.Show();
+                }
+
+                // Notify other subscribed components that the damageable was hit
+                animator.SetTrigger(AnimationStrings.hitTrigger);
+                lockVelocity = true;
+                damageableHit?.Invoke(damage, knockBack);
+                CharacterEvents.characterDamaged.Invoke(gameObject, damage);
+
+                return true;
             }
-
-            if (healthBar2 != null)
-            {
-                healthBar2.SetHealth(Health, MaxHealth);
-                healthBar2.Show();
-            }
-
-            // Notify other subscribed components that the damageable was hit
-            animator.SetTrigger(AnimationStrings.hitTrigger);
-            lockVelocity = true;
-            damageableHit?.Invoke(damage, knockBack);
-            CharacterEvents.characterDamaged.Invoke(gameObject, damage);
-
-            return true;
+                return false;
         }
         return false;
     }

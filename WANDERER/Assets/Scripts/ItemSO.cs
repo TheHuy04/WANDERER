@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,27 +13,49 @@ public class ItemSO : ScriptableObject
     public AttributeToChange attributeToChange = new AttributeToChange();
     public int amountToChangeAttribute;
 
-    public void UseItem()
+    public void UseItem(GameObject target)
     {
-        if(statToChange == StatToChange.health)
+        if(statToChange == StatToChange.Health)
         {
-            //DamageAble damageAble = GameObject.Find("")
+            DamageAble damageable = target.GetComponent<DamageAble>();
+            if (damageable != null)
+            {
+                if (damageable)
+                {
+                    damageable.ChangeHealth(amountToChangeStat);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("DamageAble component not found on target!");
+            }
         }
-        if(statToChange == StatToChange.mana)
+        if(statToChange == StatToChange.Mana)
         {
+            ManaAble manaAble = target.GetComponent<ManaAble>();
+            if(manaAble != null)
+            {
+                manaAble.ChangeMana(amountToChangeStat);
+                if (manaAble)
+                {
+                    manaAble.ChangeMana(amountToChangeStat);
+                }
 
+            }
+            else
+            {
+                Debug.LogWarning("DamageAble component not found on target!");
+            }
         }
     }
-
-
 
 
     public enum StatToChange
     {
         None,
-        health,
-        mana,
-        stamina
+        Health,
+        Mana,
+        Stamina
     };
     public enum AttributeToChange
     {
