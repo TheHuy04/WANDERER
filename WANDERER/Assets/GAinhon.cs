@@ -19,20 +19,20 @@ public class baygaiNhon : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, diemMucTieu, tocDoDiChuyen * Time.deltaTime);
-        if(Vector3.Distance(transform.position,diemMucTieu)<0.1f)
+        if (Vector3.Distance(transform.position, diemMucTieu) < 0.1f)
         {
-            if(transform.position==diemA.position) 
+            if (transform.position == diemA.position)
             {
-                diemMucTieu=diemB.position;
+                diemMucTieu = diemB.position;
             }
             else
             {
-                diemMucTieu=diemA.position;
+                diemMucTieu = diemA.position;
             }
         }
     }
     private void FixedUpdate()
     {
-        transform.Rotate(0,0,tocDoXoay);
+        transform.Rotate(0, 0, tocDoXoay);
     }
 }
