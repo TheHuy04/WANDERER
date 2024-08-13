@@ -259,7 +259,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 7
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aafb4246e7cb3fc49a217d59f21b3362, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -540,6 +540,8 @@ MonoBehaviour:
   healthChanged:
     m_PersistentCalls:
       m_Calls: []
+  healthBar: {fileID: 0}
+  healthBar2: {fileID: 0}
   _maxHealth: 100
   _health: 100
   _isAlive: 1
